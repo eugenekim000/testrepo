@@ -7,12 +7,11 @@ async function getUserTransaction(uid, txnType, monthYear) {
 
   let dateBounds = getDate(monthInput,yearInput)
   
-  console.log(dateBounds)
-  
   const url = `https://jsonmock.hackerrank.com/api/transactions/search?userId=${uid}`;
 
   let dataArray = []
   let amountArray = []
+  let finalArray = []
 
   let urls = await getUrls(url);
   
@@ -22,11 +21,16 @@ async function getUserTransaction(uid, txnType, monthYear) {
   }
   
   for (let data of dataArray){  
-
-    amountArray.push(data.amount.substring(1))  
+    amountArray.push(parseFloat(data.amount.substring(1).replace(/,/, '')))  
   }
   
-  //console.log(dataArray)
+  let averageSpending = amountArray.reduce((a, b) => a + b, 0) / amountArray.length
+  let averageCheck = amountArray.map(amount => amount > averageSpending)
+  console.log(dataArray)
+  
+  finalArray = dataArray.filter((data, index) => { if (averageCheck[index]) return data } ).map(data => data.id)
+  console.log(finalArray)
+      
   return urls;
 }
 
@@ -46,13 +50,14 @@ function getDate(month,year){
     '12':31
   }
     
+    let monthOffset = month - 1
     
     
-    let startTime = new Date(year,month,'01').getTime()
+    let startTime = new Date(year,monthOffset,'01').getTime()
     
     
     
-    let endTime = new Date(year,month,months[month]).getTime()
+    let endTime = new Date(year,monthOffset,months[month]).getTime()
     
   return [startTime,endTime]
 }
@@ -90,7 +95,8 @@ function getData(url, txnType, dateBounds) {
    
         body = JSON.parse(body);
         let result = body.data.filter(data => data.txnType === txnType).filter(data => data.timestamp <= dateBounds[1] && data.timestamp >= dateBounds[0])
-        console.log(result)
+        
+        console.log(body)
 
         resolve(result);
       });
