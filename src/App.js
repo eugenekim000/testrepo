@@ -1,26 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Header from './components/Header';
+import Job from './components/Job';
+import { v4 as uuid } from 'uuid';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	let initialJobs = [
+		{
+			id: uuid(),
+			company: 'Pathrise',
+			title: 'Web Developer',
+		},
+		{
+			id: uuid(),
+			company: 'Airbnb',
+			title: 'Web Developer',
+		},
+		{
+			id: uuid(),
+			company: 'Google',
+			title: 'Software Engineer',
+		},
+		{
+			id: uuid(),
+			company: 'Facebook',
+			title: 'Web Developer',
+		},
+	];
+
+	const [jobs, setJobs] = useState(initialJobs);
+
+	function onClickDelete(id) {
+		let newJobs = jobs.filter((state) => state.id != id);
+
+		setJobs(newJobs);
+	}
+
+	return (
+		<div className='App'>
+			<Header jobs={jobs} />
+			{jobs.map((job) => (
+				<Job id={job.id} job={job} onClickDelete={onClickDelete} />
+			))}
+		</div>
+	);
 }
 
 export default App;
