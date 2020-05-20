@@ -36,11 +36,11 @@ function App() {
 		setJobs(newJobs);
 	}
 
-	function onClickAdd(input) {
+	function onClickAdd(companyInput, titleInput) {
 		let newJob = {
 			id: uuid(),
-			company: input.company,
-			title: input.title,
+			company: companyInput,
+			title: titleInput,
 		};
 
 		setJobs([...jobs, newJob]);
@@ -48,7 +48,7 @@ function App() {
 
 	return (
 		<div className='App'>
-			<Header jobs={jobs} />
+			<Header jobs={jobs} onClickAdd={onClickAdd} />
 			{jobs.map((job) => (
 				<Job key={job.id} job={job} onClickDelete={onClickDelete} />
 			))}
