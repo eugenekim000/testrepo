@@ -36,11 +36,21 @@ function App() {
 		setJobs(newJobs);
 	}
 
+	function onClickAdd(input) {
+		let newJob = {
+			id: uuid(),
+			company: input.company,
+			title: input.title,
+		};
+
+		setJobs([...jobs, newJob]);
+	}
+
 	return (
 		<div className='App'>
 			<Header jobs={jobs} />
 			{jobs.map((job) => (
-				<Job id={job.id} job={job} onClickDelete={onClickDelete} />
+				<Job key={job.id} job={job} onClickDelete={onClickDelete} />
 			))}
 		</div>
 	);
