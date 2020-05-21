@@ -7,20 +7,23 @@
 	margin: 20px;
 	height: 15vh;
 	width: 40vw;
-	background-color: aqua;
+	background-color: maroon;
 }
 
 .job-company {
+	color: white;
 	position: relative;
 	text-align: left;
-	margin-left: 10%;
+	margin-left: 20%;
 	margin-bottom: 30px;
 	top: 20%;
 }
 
 .job-title {
+	color: white;
 	text-align: left;
-	margin-left: 10%;
+	margin-left: 20%;
+	font-size: 80%;
 }
 
 .delete-button {
