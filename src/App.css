@@ -3,17 +3,48 @@
 	text-align: center;
 }
 
-.header {
-	float: left;
-	text-align: left;
+/* <----header-----> */
+h2 {
+	margin: 10px;
+	margin-bottom: -15px;
+	font-weight: bold;
 }
 
+h3 {
+	margin-bottom: 30px;
+	color: darkgrey;
+}
+
+.header button {
+	text-align: center;
+	width: 80%;
+	height: 40px;
+	border: none;
+	box-shadow: 0px 0px 4px grey;
+	border-radius: 5px;
+	font-size: 1.5em;
+	color: grey;
+}
+
+.input-form label {
+	display: block;
+	margin: 2%;
+}
+
+.input-form label:first-child {
+	margin: 2%;
+	margin-right: 15%;
+}
+
+/* <----job container-----> */
+
 .job-container {
+	position: relative;
 	border-radius: 8px;
-	margin: 20px;
+	margin: 10px;
+	margin-left: 40px;
 	height: 15vh;
 	width: 40vw;
-	background-color: maroon;
 }
 
 .job-company {
@@ -52,12 +83,12 @@
 	background: white;
 }
 
-.input-form label {
-	display: block;
-	margin: 2%;
-}
-
-.input-form label:first-child {
-	margin: 2%;
-	margin-right: 15%;
+.time-stamp {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	margin-bottom: 3px;
+	margin-right: 2px;
+	color: lightgrey;
+	font-size: small;
 }

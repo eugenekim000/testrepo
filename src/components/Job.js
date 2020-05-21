@@ -1,10 +1,10 @@
 import React from 'react';
 
 function Job(props) {
-	let { job, onClickDelete } = props;
+	let { job, onClickDelete, color, timeStamp } = props;
 
 	return (
-		<div className='job-container'>
+		<div className='job-container' style={{ backgroundColor: job.color }}>
 			<div className='job-company'>
 				{job.company}
 				<button className='delete-button' onClick={() => onClickDelete(job.id)}>
@@ -26,6 +26,7 @@ function Job(props) {
 				</button>
 			</div>
 			<div className='job-title'>{job.title}</div>
+			<div className='time-stamp'>{job.timeStamp} </div>
 		</div>
 	);
 }

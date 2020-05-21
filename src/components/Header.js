@@ -21,9 +21,9 @@ function Header(props) {
 	};
 
 	return (
-		<div>
-			<h1>WISHLIST</h1>
-			<h2>{jobs.length} Jobs</h2>
+		<div className='header'>
+			<h2>WISHLIST</h2>
+			<h3>{jobs.length} Jobs</h3>
 			<button onClick={() => handleToggle()}>+</button>
 			{toggleForm ? (
 				<form onSubmit={handleSubmit} className='input-form'>
