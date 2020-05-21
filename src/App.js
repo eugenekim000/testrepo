@@ -49,7 +49,7 @@ function App() {
 	return (
 		<div className='App container'>
 			<div>
-				<Header className='col-6' jobs={jobs} onClickAdd={onClickAdd} />
+				<Header className='header' jobs={jobs} onClickAdd={onClickAdd} />
 				<div className='all-jobs'>
 					{jobs.map((job) => (
 						<Job key={job.id} job={job} onClickDelete={onClickDelete} />

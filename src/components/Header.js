@@ -6,8 +6,6 @@ function Header(props) {
 	const [titleForm, setTitle] = useState('');
 	const [toggleForm, setToggle] = useState(false);
 
-	console.log(companyForm, titleForm);
-
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
@@ -28,7 +26,7 @@ function Header(props) {
 			<h2>{jobs.length} Jobs</h2>
 			<button onClick={() => handleToggle()}>+</button>
 			{toggleForm ? (
-				<form onSubmit={handleSubmit}>
+				<form onSubmit={handleSubmit} className='input-form'>
 					<label>
 						Company Name:
 						<input

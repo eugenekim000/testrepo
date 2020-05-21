@@ -1,5 +1,11 @@
 .App {
+	width: 50%;
 	text-align: center;
+}
+
+.header {
+	float: left;
+	text-align: left;
 }
 
 .job-container {
@@ -44,4 +50,14 @@
 .delete-button:hover {
 	filter: none;
 	background: white;
+}
+
+.input-form label {
+	display: block;
+	margin: 2%;
+}
+
+.input-form label:first-child {
+	margin: 2%;
+	margin-right: 15%;
 }
