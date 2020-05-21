@@ -47,11 +47,15 @@ function App() {
 	}
 
 	return (
-		<div className='App'>
-			<Header jobs={jobs} onClickAdd={onClickAdd} />
-			{jobs.map((job) => (
-				<Job key={job.id} job={job} onClickDelete={onClickDelete} />
-			))}
+		<div className='App container'>
+			<div>
+				<Header className='col-6' jobs={jobs} onClickAdd={onClickAdd} />
+				<div className='all-jobs'>
+					{jobs.map((job) => (
+						<Job key={job.id} job={job} onClickDelete={onClickDelete} />
+					))}
+				</div>
+			</div>
 		</div>
 	);
 }
